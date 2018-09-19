@@ -3,6 +3,7 @@ import './App.css';
 import { css } from 'glamor'
 import { API, graphqlOperation } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
+import spinner from './spinner.png';
 
 const url = "https://s3.us-east-2.amazonaws.com/amplifytranslators3bucket/19b3b75b-caa7-4e3f-bedc-57dae4ab70be";
 
@@ -48,7 +49,7 @@ class App extends Component {
 
   translate = async () => {
     if (this.state.text === '') return
-    this.setState({ fetching: true })
+    this.setState({ fetching: true, audioReady: false })
     const code = codes[this.state.language].code
 
     const data = {
@@ -79,7 +80,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('state: ', this.state)
     return (
       <div className="App">
         <p style={styles.heading}>React Translator</p>
@@ -100,11 +100,14 @@ class App extends Component {
         />
         <br />
         {
+          this.state.fetching && <img src={spinner} className='spinner' />
+        }
+        {
           !this.state.fetching && <button {...css(styles.button)} onClick={this.translate}>Translate</button>
         }
         <br />
         {
-          this.state.audioReady && <button {...css(styles.button)} onClick={this.playAudio}>Play Audio</button>
+          !this.state.fetching && this.state.audioReady && <button {...css(styles.button)} onClick={this.playAudio}>Play Audio</button>
         }
       </div>
     );

@@ -39,6 +39,17 @@ body {
   font-size: large;
 }
 
+@keyframes spinning {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spinning infinite 1s linear;
+  width: 45px;
+  height: 45px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
