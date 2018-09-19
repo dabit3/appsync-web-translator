@@ -62,7 +62,7 @@ type TranslatedSentence {
 $util.toJson($context.result)
 ```
 
-6. Update the `getTranslatedSentence` resolver data source to use the Lambda function as the data source.
+6. Add the new Lambda function as a data source. Update the `getTranslatedSentence` resolver data source to use the Lambda function as the data source.
 
 7. Update the Lambda function code to the following (make sure to replace the bucket name with your bucket name):
 
