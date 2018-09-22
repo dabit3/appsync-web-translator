@@ -130,7 +130,7 @@ const styles = {
     },
   },
   textarea: {
-    height: 400,
+    height: 250,
     width: 475,
     marginLeft: 40,
     marginTop: 20,
@@ -142,7 +142,7 @@ const styles = {
     padding: '7px 20px', margin: '0px 3px', cursor: 'pointer'
   },
   heading: {
-    fontSize: 60
+    fontSize: 60, margin: '20px 0px'
   }
 }
 
