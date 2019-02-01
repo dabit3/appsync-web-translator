@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { css } from 'glamor'
-import { API, graphqlOperation } from 'aws-amplify'
+import { API, Storage, graphqlOperation } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
 import spinner from './spinner.png';
-
-const url = "https://s3.us-east-2.amazonaws.com/amplifytranslators3bucket/19b3b75b-caa7-4e3f-bedc-57dae4ab70be";
 
 const buttons = [
   'French',
@@ -28,14 +26,13 @@ const GetAudioQuery = `
     }
   }
 `
-
 class App extends Component {
   state = {
     play: false, language: 'French', audio: {}, text: '', audioReady: false, fetching: false
   };
   
   componentDidMount() {
-    this.audio = new Audio(url);
+    this.audio = new Audio();
     this.audio.addEventListener("ended", () => {
       this.setState({ play: false })
     });
@@ -60,7 +57,8 @@ class App extends Component {
     try {
       const audioData = await API.graphql(graphqlOperation(GetAudioQuery, data))
       const key = audioData.data.getTranslatedSentence.sentence
-      const url = `https://s3.us-east-2.amazonaws.com/amplifytranslators3bucket/${key}`
+      const url = await Storage.get(key);
+      console.log('The URL is', url);
       this.audio = new Audio(url)
       this.setState({
         audioReady: true,
