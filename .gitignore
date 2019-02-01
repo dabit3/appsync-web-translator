@@ -2,11 +2,14 @@
 
 # dependencies
 /node_modules
+package-lock.json
 
 # AWS
 amplify
 .amplifyrc
 src/aws-exports.js
+src/graphql
+.graphqlconfig.yml
 
 # testing
 /coverage

@@ -6,12 +6,18 @@ Text to audio translation using AWS AppSync, React, Amazon Polly, Amazon Transla
 
 ## Getting started
 
-1. Clone the project & change into the new directory
+0. Clone the project & change into the new directory
 
 ```sh
 git clone https://github.com/dabit3/appsync-web-translator.git
 
 cd appsync-web-translator
+```
+
+1. Install dependencies
+
+```sh
+npm install
 ```
 
 2. Initialize a new AWS Amplify project
@@ -115,7 +121,7 @@ exports.handler = (event, context, callback) => {
       else  {
         let key = uuidV4()
         const params2 = {
-          Key: key,
+          Key: 'public/' + key,
           ContentType: 'audio/mpeg',
           Body: data.AudioStream,
           ACL: 'public-read'
@@ -135,4 +141,4 @@ exports.handler = (event, context, callback) => {
 
 ```
 
-8. Add permissions to Lambda role for Rekognition as well as S3
+8. Add permissions to Lambda role for Polly, Translate as well as S3
