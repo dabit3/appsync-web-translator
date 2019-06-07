@@ -8,14 +8,14 @@ import spinner from './spinner.png';
 const buttons = [
   'French',
   'German',
-  'Portugese',
+  'Portuguese',
   'Spanish'
 ]
 
 const codes = {
   'French': { name: 'French', code: 'fr' },
   'German': { name: 'German', code: 'de' },
-  'Portugese': { name: 'Portuguese', code: 'pt' },
+  'Portuguese': { name: 'Portuguese', code: 'pt' },
   'Spanish': { name: 'Spanish', code: 'es' }
 }
 
@@ -128,7 +128,7 @@ const styles = {
     },
   },
   textarea: {
-    height: 250,
+    height: 175,
     width: 475,
     marginLeft: 40,
     marginTop: 20,
