@@ -102,7 +102,11 @@ exports.handler = (event, context, callback) => {
       'pt': 'Vitoria',
       'de': 'Vicki',
       'en': 'Joanna',
-      'fr': 'Celine'
+      'fr': 'Celine',
+      'ar': 'Zeina',
+      'ru': 'Tatyana',
+      'hi': 'Aditi',
+      'it': 'Carla'
     }
 
     const voice = voices[event.code]

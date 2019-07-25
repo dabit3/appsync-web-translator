@@ -9,14 +9,22 @@ const buttons = [
   'French',
   'German',
   'Portuguese',
-  'Spanish'
+  'Spanish',
+  'Arabic',
+  'Russian',
+  'Hindi',
+  'Italian'
 ]
 
 const codes = {
   'French': { name: 'French', code: 'fr' },
   'German': { name: 'German', code: 'de' },
   'Portuguese': { name: 'Portuguese', code: 'pt' },
-  'Spanish': { name: 'Spanish', code: 'es' }
+  'Spanish': { name: 'Spanish', code: 'es' },
+  'Arabic': { name: 'Arabic', code: 'ar' },
+  'Russian': { name: 'Russian', code: 'ru' },
+  'Hindi': { name: 'Hindi', code: 'hi' },
+  'Italian': { name: 'Italian', code: 'it' }
 }
 
 const GetAudioQuery = `
